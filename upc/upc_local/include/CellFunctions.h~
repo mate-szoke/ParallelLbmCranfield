@@ -1,0 +1,30 @@
+#ifndef CELLFUNCTIONS_H
+#define CELLFUNCTIONS_H
+
+void D2Q9Vars(double* w, int* cx, int* cy, int* opp );
+
+void MRTInitializer(float** tm, float** stmiv, double Omega);
+
+void CellIni(float **Nod,  float **Con,
+             int* NumN,     int* NumC,
+             //int DiscreteX, int DiscreteY, // use A and B instead
+             int A, int B, // Instesd of long names for DiscreteX and DiscreteY 
+             double* MinInletCoordY, double* MaxInletCoordY,
+             float* Delta, float Uavg, float Vavg,
+             int InletProfile, int CollisionModel,
+             // ADDITIONAL INPUT
+             double Omega, int* opp,
+             struct CellProps **Cells, float rho_ini);
+
+void BGKW(struct CellProps **Cells, int j, int i, double* w, int* cx, int* cy, double Omega);
+
+void TRT(struct CellProps **Cells, int j, int i, double* w,
+         int* cx, int* cy, int* opp, double Omega, double OmegaA);
+
+void MRT(struct CellProps **Cells, int j, int i, float** tm, float** stmiv);
+
+void UpdateF(struct CellProps **Cells, int j, int i);
+
+void UpdateMacroscopic(struct CellProps **Cells, int j, int i, int* cx, int* cy)
+
+#endif

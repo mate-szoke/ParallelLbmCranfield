@@ -1,0 +1,57 @@
+#include <stdbool.h>  // bool variables
+
+#ifndef SHELLFUNCTIONS_H
+#define SHELLFUNCTIONS_H
+
+// Cell properties
+struct CellProps
+{
+  int   Fluid;    
+  int   Corner;          
+  int   StreamLattice[9];
+  int    ID;             
+  int    Boundary;    
+  int    BoundaryID;  
+  int    BC_ID[9];         
+  float  Q[9];           
+  double CoordX;   
+  double CoordY;
+  double U;
+  double V;
+  double Rho;
+  double Uo;    
+  double Vo;    
+  double F[9];
+  double Feq[9];
+  double METAF[9];
+};
+
+// FUNCTIONS
+int    *Create1DArrayInt(int length);
+float  *Create1DArrayFloat(int length);
+double *Create1DArrayDouble(int length);
+
+int    **Create2DArrayInt(int width, int height);
+float  **Create2DArrayFloat(int width, int height);
+double **Create2DArrayDouble(int width, int height);
+
+int    ***Create3DArrayInt(int width, int height, int depth);
+float  ***Create3DArrayFloat(int width, int height, int depth);
+double ***Create3DArrayDouble(int width, int height, int depth);
+bool   ***Create3DArrayBool(int width, int height, int depth);
+
+
+
+// Min(a,b) & Max(a,b) Functions
+#define max(a,b) \
+   ({ __typeof__ (a) _a = (a); \
+       __typeof__ (b) _b = (b); \
+     _a > _b ? _a : _b; })
+
+#define min(a,b) \
+   ({ __typeof__ (a) _a = (a); \
+       __typeof__ (b) _b = (b); \
+     _a < _b ? _a : _b; })
+
+
+#endif

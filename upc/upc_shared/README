@@ -1,0 +1,71 @@
+Each mesh needs its own executable.
+To change mesh and create new executable, copy the corresponding files to the Mesh folder than run ApplyMeshProperties executable.
+After this step, compile with "make upc" than run as "upcrun -shared-heap 256Mb LBMSolverUPC"
+The number of threads can be changed in the makefile
+Single or Double precision can be controlled in the include/ShellFunctions.h by changing typedef of MyReal to float or double.
+
+
+The UPC Compiler was initially used on an UBUNTU 14.04 PC with the following properties:
+
+#user: upcc --version
+
+
+This is upcc (the Berkeley Unified Parallel C compiler), v. 2.18.2
+  (getting remote translator settings...)
+----------------------+---------------------------------------------------------
+ UPC Runtime          | v. 2.18.2, built on Jun  5 2014 at 12:33:13
+----------------------+---------------------------------------------------------
+ UPC-to-C translator  | v. 2.18.2, built on May  5 2014 at 14:28:46
+                      | host aphid linux-x86_64/64
+                      | gcc v4.2.4 (Ubuntu 4.2.4-1ubuntu4)
+----------------------+---------------------------------------------------------
+ Translator location  | http://upc-translator.lbl.gov/upcc-2.18.2.cgi
+----------------------+---------------------------------------------------------
+ networks supported   | udp smp
+----------------------+---------------------------------------------------------
+ default network      | smp
+----------------------+---------------------------------------------------------
+ pthreads support     | available (if used, default is 2 pthreads per process)
+----------------------+---------------------------------------------------------
+ Configured with      | '--with-translator=http://upc-translator.lbl.gov/upcc-2
+                      | .18.2.cgi' '--prefix=/usr/local/berkeley_upc/opt'
+                      | '--with-multiconf-magic=opt' 'CC=/opt/intel/bin/icc'
+----------------------+---------------------------------------------------------
+ Configure features   | berkeleyupc,pragma_upc_code,upcr,gasnet,upc_collective,
+                      | upc_io,upc_memcpy_async,upc_memcpy_vis,upc_ptradd,
+                      | upc_thread_distance,upc_tick,upc_sem,upc_dump_shared,
+                      | upc_trace_printf,upc_trace_mask,upc_local_to_shared,
+                      | upc_cast,upc_all_free,pupc,upc_types,upc_castable,
+                      | upc_nb,nodebug,notrace,nostats,nodebugmalloc,nogasp,
+                      | nothrille,segment_fast,os_linux,cpu_x86_64,cpu_64,
+                      | cc_intel,packedsptr,upc_io_64
+----------------------+---------------------------------------------------------
+ Configure id         | mate-ThinkPad-T530 Thu Jun  5 12:24:21 BST 2014 mate
+----------------------+---------------------------------------------------------
+ Binary interface     | 64-bit x86_64-unknown-linux-gnu
+----------------------+---------------------------------------------------------
+ Runtime interface #  | Runtime supports 3.0 -> 3.11: Translator uses 3.6
+----------------------+---------------------------------------------------------
+                      |  --- BACKEND SETTINGS (for smp network) ---
+----------------------+---------------------------------------------------------
+ C compiler           | /opt/intel/bin/icc
+                      |   INTEL/1400.20140120/Intel(R) C++ gcc 4.8 mode
+                      |   Intel(R) C Intel(R) 64 Compiler XE for applications
+                      |   running on Intel(R) 64, Version 14.0.2.144 Build
+                      |   20140120 Copyright (C) 1985-2014 Intel Corporation.
+                      |   All rights reserved.
+----------------------+---------------------------------------------------------
+ C compiler flags     | -O3 -wd177 -wd279 -wd1572
+----------------------+---------------------------------------------------------
+ linker               | /opt/intel/bin/icc
+                      |   INTEL/1400.20140120/Intel(R) C++ gcc 4.8 mode
+                      |   Intel(R) C Intel(R) 64 Compiler XE for applications
+                      |   running on Intel(R) 64, Version 14.0.2.144 Build
+                      |   20140120 Copyright (C) 1985-2014 Intel Corporation.
+                      |   All rights reserved.
+----------------------+---------------------------------------------------------
+ linker flags         | -O3 -L/usr/local/berkeley_upc/opt/lib -lupcr-smp-seq
+                      | -lumalloc -L/usr/local/berkeley_upc/opt/lib
+                      | -lgasnet-smp-seq -lrt -lm
+----------------------+---------------------------------------------------------
+

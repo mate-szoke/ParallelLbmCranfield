@@ -1,0 +1,8 @@
+0.0
+0.0	//Vavg Mean V
+5.0	//rho_ini density to initialize
+0.1	// Viscosity
+1	//InletProfile 1:yes    2:no
+1	//CollisionModel 1:BGKW   2:TRT   3:MRT
+1	//CurvedBoundaries 1:yes    2:no
+2	//OutletProfile 1:yes    2:no
